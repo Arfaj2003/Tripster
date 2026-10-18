@@ -1,64 +1,6 @@
 <% layout("/layouts/boilerplate") %>
-<style>
-  #filters {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    align-items: center;
-    gap: 25px;
-    margin-top: 1rem;
-    width: 100%;
-  }
-
-  .filters {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    opacity: 0.8;
-    flex-shrink: 0;
-    margin: 0;
-  }
-
-  .filters:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-  .filters div {
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .filters p {
-    margin: 5px 0 0;
-    white-space: nowrap;
-  }
-
-  .tax-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-left: auto;
-    padding: 0.75rem;
-    border: 1px solid rgb(194, 188, 188);
-    border-radius: 1rem;
-    height: 3.25rem;
-  }
-
-  .tax-toggle .form-check {
-    margin-bottom: 0;
-  }
-
-  .tax-info {
-    display: none;
-  }
-</style>
 <div class="listings-container">
-  <!-- <h3>All Listings</h3> -->
+  <!-- Category Filters -->
   <div id="filters">
     <div class="filters">
       <div><i class="fa-solid fa-fire-flame-curved"></i></div>
@@ -124,8 +66,8 @@
       </div>
     </div>
   </div>
-
-  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+  <!-- Listings Grid -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gx-4 gy-3">
     <% for (let listing of allListings) { %>
 
     <a href="/listings/<%= listing._id %>" class="listing-link col">
@@ -134,7 +76,6 @@
           src="<%= listing.image.url %>"
           class="card-img-top"
           alt="listing_image"
-          style="height: 20rem"
         />
 
         <div class="card-img-overlay"></div>
